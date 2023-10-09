@@ -26,10 +26,10 @@ def Covar(x):
     return cv
 
 # Sets a cap on the data length
-cap = 252
+cap = 150
 
 # Set storage cap (15 days)
-lookback = 15
+lookback = 10
 
 # Extracts the adjusted close
 close = data['adjClose'].values.tolist()[:cap]
@@ -50,7 +50,7 @@ T = len(acceleration)
 
 Fk = np.array([[1, 1], [0, 1]])
 Bk = np.array([[0.5],[1]])
-xk = np.array([[rd.randint(300, 400)], [rd.randint(0, 1)]])
+xk = np.array([[close[0]], [velocity[0]]])
 zk = np.array([[0], [0]])
 Pk = np.array([[rd.random(), rd.random()], [rd.random(), rd.random()]])
 Qk = np.array([[0, 0],[0, 0]])
